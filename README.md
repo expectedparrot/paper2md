@@ -14,13 +14,13 @@ paper.pdf  →  paper_md/
 
 ```bash
 # Lightweight (PyMuPDF backend only)
-pip install paper2md
+pip install "paper2md @ git+https://github.com/expectedparrot/paper2md.git"
 
 # With marker-pdf for academic-layout awareness (recommended)
-pip install "paper2md[marker]"
+pip install "paper2md[marker] @ git+https://github.com/expectedparrot/paper2md.git"
 
 # With Reducto cloud API
-pip install "paper2md[reducto]"
+pip install "paper2md[reducto] @ git+https://github.com/expectedparrot/paper2md.git"
 ```
 
 ## Quick start
@@ -67,7 +67,7 @@ result = convert("paper.pdf", output_dir="/tmp/my_paper")
 The Reducto backend is a separate module (not wired into the main `convert()` function):
 
 ```bash
-pip install "paper2md[reducto]"
+pip install "paper2md[reducto] @ git+https://github.com/expectedparrot/paper2md.git"
 export REDUCTO_API_KEY=your_key_here
 ```
 
@@ -91,9 +91,9 @@ md, images = convert_with_reducto(Path("paper.pdf"), Path("./out"))
 
 | Backend | Quality | Speed | Cost | Install |
 |---------|---------|-------|------|---------|
-| **marker** | Best | Slow | Free | `pip install "paper2md[marker]"` |
+| **marker** | Best | Slow | Free | `pip install "paper2md[marker] @ git+https://github.com/expectedparrot/paper2md.git"` |
 | **pymupdf** | Good | Fast | Free | bundled |
-| **Reducto** | Best | Fast | Paid | `pip install "paper2md[reducto]"` + API key |
+| **Reducto** | Best | Fast | Paid | `pip install "paper2md[reducto] @ git+https://github.com/expectedparrot/paper2md.git"` + API key |
 
 **marker-pdf** is recommended for academic papers — it handles multi-column layouts, LaTeX equations, figure captions, and tables well. It is the default backend when installed.
 
