@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper2md"
+version = "0.1.0"
+description = "Convert academic-paper PDFs to Markdown with extracted PNG figures"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+
+# Core dependency — PyMuPDF provides both pymupdf4llm and fitz
+dependencies = [
+    "pymupdf>=1.23",
+    "pymupdf4llm>=0.0.5",
+    "Pillow>=10.0",
+    "marker-pdf>=0.3",
+]
+
+[project.optional-dependencies]
+# Reducto cloud API (requires REDUCTO_API_KEY)
+reducto = ["reducto"]
+
+[project.scripts]
+paper2md = "paper2md.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["paper2md*"]
